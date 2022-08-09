@@ -1,0 +1,41 @@
+{
+  "name": "@ajmbrands/snyk-callgraph",
+  "version": "1.0.0",
+  "description": "Hacky package to generate Snyk call graph",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run lint && npm run test:unit && npm run test:integration",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "gen": "tsc && ./build/src/callgraph.js generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJMBrands/snyk-depgraph.git"
+  },
+  "author": "AJMBrands",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AJMBrands/snyk-depgraph/issues"
+  },
+  "homepage": "https://github.com/AJMBrands/snyk-depgraph#readme",
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/yargs": "^17.0.11",
+    "@types/glob": "^7.2.0",
+    "gts": "^3.1.0",
+    "typescript": "^4.0.3"
+  },
+  "bin": {
+    "generate-callgraph": "bin/callgraph.js generate"
+  },
+  "dependencies": {
+    "@snyk/java-call-graph-builder": "^1.23.6",
+    "yargs": "^17.5.1"
+  }
+}
