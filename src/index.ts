@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 import { Edge } from '@snyk/graphlib'
 import { getCallGraphMvn } from '@snyk/java-call-graph-builder'
-import { sep as seperator  } from 'path'
 
 // export async function getCallGraph(
 //   classPath: string,
@@ -46,7 +45,7 @@ export async function getCallGraph(path: string): Promise<string> {
     const temp = graph.nodeEdges(n)
     const edges = temp instanceof Object ? temp as Edge[] : []
     for (const edge in edges) {
-      console.log(edge)
+      process.stdout.write(edge)
     }
   }
   return "TODO"
