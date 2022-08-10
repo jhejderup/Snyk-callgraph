@@ -13,3 +13,4 @@ yarn.lock
 .vscode
 build/
 testfiles/
+java-call-graph-builder/
