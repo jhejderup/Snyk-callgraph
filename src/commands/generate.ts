@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import { Arguments, CommandBuilder } from 'yargs';
 import { getCallGraph } from '../index';
 
@@ -16,4 +17,6 @@ export async function handler(argv: Arguments<Options>): Promise<void> {
     const { targetPath } = argv
     const result = await getCallGraph(targetPath)
     process.stdout.write(result)
+    // To make sure it gets printed nicely.
+    process.stdout.write(EOL)
 }
